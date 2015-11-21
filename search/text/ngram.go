@@ -1,7 +1,7 @@
 package text
 
 import (
-  "errors"
+	"errors"
 )
 
 const (
@@ -11,14 +11,13 @@ const (
 var (
 	ErrEmptyText = errors.New("Ngram: Input text is empty")
 	ErrTextLessN = errors.New("Ngram: Size of text must be greater then N")
-
 )
 
 type NGram struct {
 	// Text provides input data for fit NGrams
-	Text   string
+	Text string
 	// N - split on n parts
-	N      uint
+	N uint
 
 	// AlwaysComplete not returns error
 	// only in the case if during execution of function Run
@@ -28,10 +27,9 @@ type NGram struct {
 	// If MostFrequent > 0, return only number of MostFrequent ngrams
 	// TODO
 	MostFrequent int
-
 }
 
-func (ngram *Ngram) PreRun(data string){
+func (ngram *Ngram) PreRun(data string) {
 	return data
 }
 
@@ -51,7 +49,7 @@ func (ngram *NGram) Run() (map[string]int, error) {
 	dict = map[string]int{}
 	start := 0
 	for i := 0; i < count-ngram.Count; i++ {
-		part := ngram.Text[start:start+ngram.N]
+		part := ngram.Text[start : start+ngram.N]
 		value, ok := dict[part]
 		if !ok {
 			dict[part] = 1
