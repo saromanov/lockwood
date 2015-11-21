@@ -48,7 +48,7 @@ func (ngram *NGram) Run() (map[string]int, error) {
 
 	dict = map[string]int{}
 	start := 0
-	for i := 0; i < count-ngram.Count; i++ {
+	for i := 0; i < len(ngram.Text)-ngram.Count; i++ {
 		part := ngram.Text[start : start+ngram.N]
 		value, ok := dict[part]
 		if !ok {
