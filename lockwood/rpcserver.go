@@ -25,7 +25,7 @@ func InitRPCServer() *RPCServer {
 
 //Close provides stopping of RPC server
 func (rpcs *RPCServer) Close() {
-
+	rpcs.Close()
 }
 
 // register provides registration of enpoint
